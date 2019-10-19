@@ -1,0 +1,7 @@
+---
+baseURL: "https://indieweb.nyc/"
+languageCode: "en-us"
+title: "IndieWeb Events in New York City"
+disableKinds:
+- RSS
+- sitemap
