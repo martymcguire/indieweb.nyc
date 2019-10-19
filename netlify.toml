@@ -1,0 +1,8 @@
+[build]
+  command = "hugo"
+  function = "functions"
+  publish = "public"
+
+[dev]
+  port = 1313
+  command = "hugo serve"
