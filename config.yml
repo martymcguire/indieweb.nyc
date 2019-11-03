@@ -2,6 +2,7 @@
 baseURL: "https://indieweb.nyc/"
 languageCode: "en-us"
 title: "IndieWeb Events in New York City"
+disableHugoGeneratorInject: true
 disableKinds:
 - RSS
 - sitemap
