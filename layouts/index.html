@@ -9,6 +9,7 @@
 <h1 class="h-card"><a class="u-url u-uid p-name" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
 <section class="h-feed" id="events">
   <h2 class="p-name">IndieWeb Events</h2>
+  <a href="webcal://indieweb.nyc/calendar.ics">📅 Subscribe to Calendar</a>
   <section>
     <h3>Upcoming Events</h3>
     {{ $events := where (where (where .Site.Pages.ByPublishDate ".Section" "=" "events") ".Kind" "page") ".Date" ">=" now -}}
