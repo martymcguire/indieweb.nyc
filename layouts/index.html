@@ -7,19 +7,22 @@
 </head>
 <body>
 <h1 class="h-card"><a class="u-url u-uid p-name" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-<section class="h-feed" id="upcoming-events">
-<h2 class="p-name">Upcoming Events</h2>
-{{ $events := where (where (where .Site.Pages.ByPublishDate ".Section" "=" "events") ".Kind" "page") ".Date" ">=" now -}}
-{{ range (sort $events "Params.start" "asc") -}}
-  {{ partial "list-event.html" . }}
-{{ end -}}
-</section>
-<section class="h-feed" id="past-events">
-<h2 class="p-name">Past Events</h2>
-{{ $events := where (where (where .Site.Pages.ByPublishDate ".Section" "=" "events") ".Kind" "page") ".Date" "<=" now -}}
-{{ range (sort $events "Params.start" "asc") -}}
-  {{ partial "list-event.html" . }}
-{{ end -}}
+<section class="h-feed" id="events">
+  <h2 class="p-name">IndieWeb Events</h2>
+  <section>
+    <h3>Upcoming Events</h3>
+    {{ $events := where (where (where .Site.Pages.ByPublishDate ".Section" "=" "events") ".Kind" "page") ".Date" ">=" now -}}
+    {{ range (sort $events "Params.start" "asc") -}}
+      {{ partial "list-event.html" . }}
+    {{ end -}}
+  </section>
+  <section>
+    <h3>Past Events</h3>
+    {{ $events := where (where (where .Site.Pages.ByPublishDate ".Section" "=" "events") ".Kind" "page") ".Date" "<=" now -}}
+    {{ range (sort $events "Params.start" "desc") -}}
+      {{ partial "list-event.html" . }}
+    {{ end -}}
+  </section>
 </section>
 </body>
 </html>
