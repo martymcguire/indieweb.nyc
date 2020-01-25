@@ -1,5 +1,9 @@
 <div class="h-event vevent">
-  <h3 class="p-name summary"><a class="u-url url" href="{{ .Permalink }}">{{ .Params.Title }}</a></h3>
+  {{ $url := .Permalink -}}
+  {{ with .Params.syndication -}}
+    {{ $url = index . 0 -}}
+  {{ end -}}
+  <h3 class="p-name summary"><a class="u-url url" href="{{ $url }}">{{ .Params.Title }}</a></h3>
   {{ $start := (time .Params.start) -}}
   {{ $end := (time .Params.end) -}}
   <time class="dt-start dtstart" datetime="{{ $start.Format $.Site.Params.ISO8601 }}">{{ $start.Format $.Site.Params.humanDate }}</time> - <time class="dt-end dtend" datetime="{{ $end.Format $.Site.Params.ISO8601 }}">{{ $end.Format "3pm" }}</time>
